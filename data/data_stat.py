@@ -18,12 +18,12 @@ combined_df['DIALECT'] = combined_df['DIALECT'].str.split('/')
 combined_df = combined_df.explode('DIALECT')
 combined_df['IRONY'] = combined_df['IRONY'].replace({True: 1, False: 0})
 dialect_mapping = {
-    'MSA': 1,
-    'MAGHREBI': 2,
-    'LEVANTINE': 3,
-    'GULF': 4,
-    'EGYPTIAN': 5,
-    'SUDANESE': 6
+    'MSA': 0,
+    'MAGHREBI': 1,
+    'LEVANTINE': 2,
+    'GULF': 3,
+    'EGYPTIAN': 4,
+    'SUDANESE': 5
 }
 
 combined_df['DIALECT'] = combined_df['DIALECT'].replace(dialect_mapping)
