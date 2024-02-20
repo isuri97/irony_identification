@@ -36,3 +36,14 @@ print(combined_df)
 print(unique_dialects)
 
 combined_df.to_csv('dialect-identification.csv', sep='\t')
+
+#irony phase identification
+df1_selected = df1[['text', 'IRONY PHASE']]
+df2_selected = df2[['text', 'IRONY PHASE']]
+
+combined_df = pd.concat([df1_selected, df2_selected], ignore_index=True)
+combined_df['IRONY PHASE'] = combined_df['IRONY PHASE'].str.replace('//', '')
+
+combined_df = combined_df.dropna(subset=['IRONY PHASE'])
+
+combined_df.to_csv('irony_phase.csv', sep='\t')
